@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15B42" minimumToolsVersion="Xcode 7.0">
+    <entity name="Cloth" representedClassName=".Cloth" syncable="YES">
+        <attribute name="brand" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="clothId" optional="YES" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="detailUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" indexed="YES" syncable="YES"/>
+        <relationship name="largeImages" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="ClothLargeImage" inverseName="cloth" inverseEntity="ClothLargeImage" syncable="YES"/>
+        <relationship name="thumbImages" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="ClothThumbImage" inverseName="cloth" inverseEntity="ClothThumbImage" syncable="YES"/>
+    </entity>
+    <entity name="ClothLargeImage" representedClassName=".ClothLargeImage" syncable="YES">
+        <attribute name="imageData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="cloth" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Cloth" inverseName="largeImages" inverseEntity="Cloth" syncable="YES"/>
+    </entity>
+    <entity name="ClothThumbImage" representedClassName=".ClothThumbImage" syncable="YES">
+        <attribute name="imageData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="cloth" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Cloth" inverseName="thumbImages" inverseEntity="Cloth" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Cloth" positionX="-63" positionY="-18" width="128" height="165"/>
+        <element name="ClothLargeImage" positionX="-36" positionY="45" width="128" height="90"/>
+        <element name="ClothThumbImage" positionX="-54" positionY="18" width="128" height="90"/>
+    </elements>
+</model>
